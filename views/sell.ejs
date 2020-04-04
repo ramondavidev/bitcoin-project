@@ -1,0 +1,40 @@
+<% layout('layouts/boilerplate') -%>
+
+<div class="jumbotron mt-5">
+    <h3 class="lead">Sale of Bitcoins</h3>  
+    <h3 class="lead">Current Bitcoin Price for sale <%= Number(bitcoin) %>$</h3>  
+    <hr class="my-4">  
+    <% purchases.forEach(function(purchase){ %>
+
+        <% if(purchase.rest){ %>
+            <% var price = purchase.rest %>
+            <% var priceBought = purchase.bitcoinValue %>
+        <% } else { %>
+            <% var price = purchase.bitcoin %>
+        <% } %>
+        <div>
+            <h3><%= purchase.bitcoin %></h3>
+            <% if(priceBought){ %>
+            
+            <div class="alert alert-danger" role="alert">
+                <strong>OBS: </strong> you only have <strong><%= price %></strong> bitcoin from your original purchase
+            </div>
+            <% } %>
+            
+            <p>Date: <%= moment(purchase.date).format('l') %></p>
+            <p>Bought for: <%= purchase.boughtFor %>R$</p>
+            <p>Value of the bictoin when bought: <%= purchase.bitcoinValue %></p>
+            <form action="/sale/<%= purchase._id %>" method="POST">
+                <label for="">Amount:</label>
+                <input type="number" step="0.0000000000000001" min="0" max="<%= price %>" name="bitcoinSold" value="<%= price %>">
+                <button style="font-size: 12px; padding: 3px;" class="btn btn-success">Sell Bitcoin</button>
+                <% if(priceBought){ %>
+                    <br>
+                   <strong> <i style="color: red;">You can only sell this for its original value: <%= priceBought %>$</i> </strong>
+                <% } %>
+                
+            </form>
+            <hr>
+        </div>
+    <% }) %>
+</div>

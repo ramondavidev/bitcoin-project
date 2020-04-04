@@ -6,7 +6,8 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
     username: { type: String, unique: true, required: true },
     email: { type: String, unique: true, required: true },
-    token: { type: String}
+    cash: { type: Number, default: 0 },
+    token: { type: String }
 });
 
 UserSchema.plugin(passportLocalMongoose);

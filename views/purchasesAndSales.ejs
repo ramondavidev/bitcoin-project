@@ -1,0 +1,11 @@
+<% layout('layouts/boilerplate') -%>
+
+    <div class="jumbotron mt-5">
+        <h1>Purchases & Sales</h1>
+        <h3> Purchases and Sales at <%=moment().format('L'); %></h3>
+        <hr>
+        <p class="lead">The total of bitcoins bought in the day was <%= totalBought %></p>
+        <p class="lead">The total of bitcoins sold in the day was <%= totalSold %></p>
+        <hr class="my-4">
+    
+      </div>

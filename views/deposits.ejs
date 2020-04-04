@@ -1,0 +1,11 @@
+<% layout('layouts/boilerplate') -%>
+    
+<div class="jumbotron mt-5">
+    <h3>My Deposits from the last 90 days</h3>
+    <hr class="my-4">
+<% accounts.forEach(function(deposit){ %>
+    <p>Date: <%= moment(deposit.date).format('l') %></p>
+    <p>Amount: <%= deposit.amount %>R$</p>
+    <hr>
+<% }) %>
+  </div>

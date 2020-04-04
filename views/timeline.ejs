@@ -1,0 +1,17 @@
+<% layout('layouts/boilerplate') -%>
+    
+<% var now = new Date(); %>
+<% var time %>
+<% var m = 1440 %>
+
+<div class="jumbotron mt-5">
+    <h3>Timeline</h3>
+    <% array.forEach(function(price){ %>
+        <% time = moment(now).subtract(m, "minutes").toDate(); %>
+        <hr class="my-4">
+        <p><strong><%= time %></strong></p>
+        <p class="lead">Price to buy: <%= price.buy %>$</p>
+        <p class="lead">Price to sell: <%= price.sell %>$</p>
+        <% m = m - 10; %>
+    <% }) %>
+  </div>

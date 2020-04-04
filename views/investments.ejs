@@ -1,0 +1,19 @@
+<% layout('layouts/boilerplate') -%>
+    
+    <div class="jumbotron mt-5">
+        <h3>My Investments</h3>
+        <hr class="my-4">
+        <% purchases.forEach(function(purchase){ %>
+            <h5>Date:<%= moment(purchase.date).format('l') %></h5>
+            <h5>The amount of bitcoin:<%= purchase.bitcoin %></h5>
+            <% if(purchase.rest){ %>
+            <h5 style="color: red;">You only have <%= purchase.rest %> from this value </h5>
+            <% } %>
+            <h5>Bought for:<%= purchase.boughtFor %>R$</h5>
+            <h5>Bitcoin Value in the moment of the purchase: <%= purchase.bitcoinValue %>$</h5>
+            <h5>Bitcoin Value now: <%= bitcoin %>$</h5>
+            <h5>Bitcoin price variation: <%= bitcoin / purchase.bitcoinValue %></h5>
+            <hr class="my-4">
+        <% }) %>
+    
+      </div>

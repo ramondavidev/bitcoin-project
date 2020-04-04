@@ -1,0 +1,21 @@
+<% layout('layouts/boilerplate') -%>
+
+
+    <div class="jumbotron mt-5">
+        <h3><a>Bitcoin Price <%= Number(bitcoin) %>$</a></h3>  
+        <h3 class="lead">The currency from BRL to USD is <%= currency %></h3>  
+        <h3 class="lead">Your total money is <%= total %>R$</h3>  
+        <h3 class="lead">Your total money in dolar is <%= currencyDolar %>$</h3>  
+    </div>
+
+    <form class="text-center border border-light p-5" style="width: 400px; margin: 0 auto; background-color: grey;" action="/buy" method="POST">
+
+        <h1 class="mb-5" style="color: #17a2b8;">Buy in BRL</h1>
+    
+    
+        <input type="number" name="amount" max="<%= total %>" required  class="form-control mb-4" placeholder="Amount in R$">
+    
+        <button class="btn btn-info btn-block mt-3" type="submit">Buy</button>
+    
+    </form>
+

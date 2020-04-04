@@ -1,0 +1,15 @@
+<% layout('layouts/boilerplate') -%>
+    
+
+    <div class="jumbotron mt-5">
+        <h1>Sale History</h1>
+        <hr class="my-4">
+        <% sale.forEach(function(sold){ %>
+            <hr class="my-4">
+            <h5>Date: <%= moment(sold.date).format('l') %></h5>
+            <h5>The amount of bitcoin:<%= sold.bitcoin %></h5>
+            <h5>Sold for: <%= sold.soldFor %>R$</h5>
+            <h5>Bitcoin Value in the moment of the sold: <%= sold.bitcoinValue %>$</h5>    
+            
+        <% }) %>
+      </div>

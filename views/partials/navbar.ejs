@@ -10,15 +10,91 @@
 	}
 </style>
 
-<ul id="navbar">
+<!--<ul id="navbar">
 	<li><a href="/">Home</a></li>
-	<li><a href="/posts">Posts</a></li>
 	<% if(!currentUser) { %>
 	    <li><a href="/users/register">Register</a></li>
 	    <li><a href="/users/login">Login</a></li>
 	<% } else { %>
+		<li><a href="/cash">Cash</a></li>
 		<li><a href="/deposit">Deposit</a></li>
-	    <li><a href="/users/logout">Logout</a></li>
+		<li><a href="/bitcoin">Bitcoin Info</a></li>
+		<li><a href="/buy">Buy Bitcoin</a></li>
+		<li><a href="/investments">Investments</a></li>
+		<li><a href="/sale">Sell Bitcoins</a></li>
+		<li><a href="/deposits">My Deposits</a></li>
+		<li><a href="/purchases">My Purchases</a></li>
+		<li><a href="/sold">Sale History</a></li>
+		<li><a href="/purchases_and_sales">Purchases and sales of the day</a></li>
+		<li><a href="/users/logout">Logout</a></li>
+		
 	Welcome, <%= currentUser.username %>!
 	<% } %>
-</ul>
+</ul>-->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand color-navbar" href="/"><i <i class="fab fa-btc">TC Market</i>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+		<li class="nav-item">
+    		<a class="nav-link color-navbar" href="/"></a>
+		</li>
+        <li class="nav-item">
+    		<a class="nav-link color-navbar" href="/">Home</a>
+		</li>
+		<% if(currentUser) { %>
+		<li class="nav-item">
+    		<a class="nav-link color-navbar" href="/cash">Cash</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link color-navbar" href="/deposit">Deposit</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link color-navbar" href="/bitcoin">Bitcoin Info</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link color-navbar" href="/buy">Buy Bitcoin</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link color-navbar" href="/sale">Sell Bitcoin</a>
+		</li>
+        <li class="nav-item dropdown">
+          <a class="nav-link color-navbar dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            My Actions
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/deposits">Deposits</a>
+            <a class="dropdown-item" href="/investments">Investments</a>
+			<a class="dropdown-item" href="/purchases">Purchases</a>
+			<a class="dropdown-item" href="/sold">Sold</a>
+			<a class="dropdown-item" href="/purchases_and_sales">Purchases & Sales</a>
+			<a class="dropdown-item" href="/timeline">Timeline</a>
+          </div>
+        </li>  
+	<% } %>
+	</ul>
+      <ul class="navbar-nav ml-auto mr-5">
+        <li class="nav-item">
+        </li>
+        <% if(!currentUser) { %>
+        <li class="nav-item">
+          <a class="nav-link color-navbar" href="/users/register""><i class="fas fa-user-plus"></i> Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link color-navbar" href="/users/login"><i class="fas fa-sign-in-alt"></i> Login</a>
+        </li>
+        <% } else { %>
+          <li class="nav-item">
+            <a class="nav-link color-navbar">Welcome, <%= currentUser.username %></a>
+          </li>
+	      <li class="nav-item">
+          <a class="nav-link color-navbar" href="/users/logout">Sair</a>
+        </li>
+	      <% } %>
+      </ul>
+    </div>
+  </nav>

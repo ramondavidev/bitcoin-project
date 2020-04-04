@@ -6,6 +6,8 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "@sendgrid/mail": "^6.5.5",
+    "axios": "^0.19.2",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^8.2.0",
@@ -15,6 +17,7 @@
     "express-session": "^1.17.0",
     "http-errors": "~1.6.3",
     "jsonwebtoken": "^8.5.1",
+    "moment": "^2.24.0",
     "mongoose": "^5.9.5",
     "morgan": "~1.9.1",
     "passport": "^0.4.1",
